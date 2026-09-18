@@ -14,7 +14,7 @@
     body{margin:0;background:transparent;color:var(--ink);font:16px/1.6 Raleway,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
     button{font:inherit}
     button:focus-visible,a:focus-visible{outline:3px solid #b17a27;outline-offset:5px}
-    .experience{width:100%;max-width:none;padding:0;margin:0;container-type:inline-size}
+    .experience{width:100%;max-width:none;padding:0;margin:0}
     .eyebrow{display:block;font-size:12px;line-height:1.5;font-weight:600;letter-spacing:1.6px;text-transform:uppercase;font-variant-numeric:lining-nums}
     h1,h2,p{margin:0}
     h1,h2{font-family:Raleway,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;font-weight:500}
@@ -49,11 +49,11 @@
     .close:hover{background:var(--sage)}
     .video-frame{aspect-ratio:16/9;width:100%;border:0;display:block}
     .film-message{padding:24px 0;color:var(--muted)}
-    @container (min-width:600px) and (max-width:1099px){
+    @media(min-width:600px) and (max-width:959px){
       .stories{grid-template-columns:repeat(2,minmax(0,1fr))}
       .film{grid-column:1/-1;aspect-ratio:2.2}
     }
-    @container (min-width:1100px){
+    @media(min-width:960px){
       .experience{max-width:none;padding:0;margin:0}
       .stories{grid-template-columns:repeat(4,minmax(0,1fr));grid-template-rows:repeat(2,minmax(280px,1fr));gap:10px;min-height:100svh}
       .story{display:contents}
@@ -116,7 +116,7 @@
     if (embedded) {
       document.documentElement.classList.add('embedded');
       const main = document.querySelector('main');
-      const postHeight = () => window.parent.postMessage({ type: 'rhine:height', height: Math.ceil(main.getBoundingClientRect().height) }, '*');
+      const postHeight = () => window.parent.postMessage({ type: 'danube:height', height: Math.ceil(main.getBoundingClientRect().height) }, '*');
       new ResizeObserver(postHeight).observe(main);
       window.addEventListener('load', postHeight);
     }
